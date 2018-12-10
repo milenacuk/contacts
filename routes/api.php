@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+// use \App\Http\Controllers\ContactsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('contacts','ContactsController@index');
+Route::resource('contacts',ContactsController::class);
+//zato sto smo naveli ::class ne moramo gore da usujemo
