@@ -18,5 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('contacts',ContactsController::class);
+Route::resource('contacts',ContactsController::class)->except(['edit','create']);
 //zato sto smo naveli ::class ne moramo gore da usujemo
