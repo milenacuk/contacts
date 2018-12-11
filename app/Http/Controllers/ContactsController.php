@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateContactRequest;
 
 class ContactsController extends Controller
 {
@@ -33,9 +34,17 @@ class ContactsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateContactRequest $request)
     {
-        //
+        // $validation = $this->validate(
+        //      $request, [
+        //         'first_name' => 'required',
+        //         'last_name' => 'required',
+        //         'email' => 'required|unique:contacts,email'
+        //     ]
+        //     );
+        //     dd($validation);
+        return Contact::create($request->only(['first_name','last_name','email']));
     }
 
     /**
