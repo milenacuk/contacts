@@ -25,7 +25,9 @@ class AuthController extends Controller
             'token' => $token,
             'type' => 'bearer',
             //tip tokena koji smo kreirali
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL() * 60,
+            'user' => auth()->user()
+            //usera smo dodali jer ce nam neki od podataka trebati na backend-u
         ]);
     }
 }
