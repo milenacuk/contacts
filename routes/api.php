@@ -18,6 +18,13 @@ use Illuminate\Http\Request;
 // header('Access-Control-Allow-Headers: Content-Type,Accept,Origin');
 //ovo gore je jedan od nacina da nam Laravel prima informacije od drugih izvora,frameworka,nije najbolje resenje,treba instalirati Cors
 
+Route::group([
+    'prefix'=> 'auth',
+    'namespace' => 'Auth'
+],function(){
+    Route::post('/login', 'AuthController@login');
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
