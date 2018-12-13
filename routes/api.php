@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+// header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Methods: PUT,GET,POST,DELETE,OPTIONS');
+// header('Access-Control-Allow-Headers: Content-Type,Accept,Origin');
+//ovo gore je jedan od nacina da nam Laravel prima informacije od drugih izvora,frameworka,nije najbolje resenje,treba instalirati Cors
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
